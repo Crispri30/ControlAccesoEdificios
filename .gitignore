@@ -1,0 +1,17 @@
+# Archivos y carpetas de Visual Studio
+.vs/
+*.user
+*.suo
+
+# Directorios de salida de compilación
+bin/
+obj/
+
+# Archivos temporales
+*.log
+*.tmp
+*.cache
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
