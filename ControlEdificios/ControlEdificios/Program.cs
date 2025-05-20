@@ -1,3 +1,5 @@
+using ControlAccesoPrueba.Forms;
+
 namespace ControlEdificios
 {
     internal static class Program

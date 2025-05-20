@@ -11,7 +11,7 @@ namespace ControlAccesoPrueba.Utilidades
     public class ConexionBD
     {
         //Cadena de conexion indicando el servidor y la bd
-        private readonly string connectionString = "Server=LAPTOP-3T0KE2DD\\SQLEXPRESS;Database=ControlEdificios;Trusted_Connection=True;TrustServerCertificate=True";
+        private readonly string connectionString = "Server=localhost\\SQLEXPRESS;Database=ControlEdificios;Trusted_Connection=True;TrustServerCertificate=True";
 
         //variable con la única instancia de la clase ConexionBD
         private static ConexionBD? instancia;

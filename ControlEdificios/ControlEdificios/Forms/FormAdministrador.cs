@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ControlAccesoPrueba.Repositorios;
 using ControlAccesoPrueba.Modelos;
+using ControlEdificios.Repositorios;
 
 namespace ControlAccesoPrueba.Forms
 {
