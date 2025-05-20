@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\repositorios\\empleadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|solutionrelative:controledificios\\repositorios\\empleadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\modelos\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|solutionrelative:controledificios\\modelos\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EmpleadoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Repositorios\\EmpleadoRepository.cs",
+              "RelativeDocumentMoniker": "ControlEdificios\\Repositorios\\EmpleadoRepository.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Repositorios\\EmpleadoRepository.cs",
+              "RelativeToolTip": "ControlEdificios\\Repositorios\\EmpleadoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T15:45:56.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Empleados.cs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Modelos\\Empleados.cs",
               "RelativeDocumentMoniker": "ControlEdificios\\Modelos\\Empleados.cs",
               "ToolTip": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Modelos\\Empleados.cs",
               "RelativeToolTip": "ControlEdificios\\Modelos\\Empleados.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T15:44:00.236Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ConexionBD.cs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Utilidades\\ConexionBD.cs",
               "RelativeDocumentMoniker": "ControlEdificios\\Utilidades\\ConexionBD.cs",
@@ -51,12 +68,11 @@
               "RelativeToolTip": "ControlEdificios\\Utilidades\\ConexionBD.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T15:32:22.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T15:32:22.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Form1.cs",
               "RelativeDocumentMoniker": "ControlEdificios\\Form1.cs",
