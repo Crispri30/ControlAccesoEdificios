@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\modelos\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|solutionrelative:controledificios\\modelos\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\utilidades\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|solutionrelative:controledificios\\utilidades\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\controledificios\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|solutionrelative:controledificios\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -27,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Empleados.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Modelos\\Empleados.cs",
+              "RelativeDocumentMoniker": "ControlEdificios\\Modelos\\Empleados.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Modelos\\Empleados.cs",
+              "RelativeToolTip": "ControlEdificios\\Modelos\\Empleados.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T15:44:00.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ConexionBD.cs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Utilidades\\ConexionBD.cs",
               "RelativeDocumentMoniker": "ControlEdificios\\Utilidades\\ConexionBD.cs",
@@ -39,15 +56,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Form1.cs",
               "RelativeDocumentMoniker": "ControlEdificios\\Form1.cs",
               "ToolTip": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "ControlEdificios\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T15:22:26.15Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-05-20T15:22:26.15Z"
             }
           ]
         }
