@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\controledificios.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|solutionrelative:controledificios\\controledificios.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\utilidades\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|solutionrelative:controledificios\\utilidades\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{268F671D-3A37-4544-B97E-70FABBF32671}|ControlEdificios\\ControlEdificios.csproj|c:\\users\\user\\onedrive\\escritorio\\controlaccesoedificios\\controledificios\\controledificios\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -18,24 +18,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ControlEdificios",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\ControlEdificios.csproj",
-              "RelativeDocumentMoniker": "ControlEdificios\\ControlEdificios.csproj",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\ControlEdificios.csproj",
-              "RelativeToolTip": "ControlEdificios\\ControlEdificios.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-20T15:23:15.424Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConexionBD.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Utilidades\\ConexionBD.cs",
+              "RelativeDocumentMoniker": "ControlEdificios\\Utilidades\\ConexionBD.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Escritorio\\ControlAccesoEdificios\\ControlEdificios\\ControlEdificios\\Utilidades\\ConexionBD.cs",
+              "RelativeToolTip": "ControlEdificios\\Utilidades\\ConexionBD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T15:32:22.198Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

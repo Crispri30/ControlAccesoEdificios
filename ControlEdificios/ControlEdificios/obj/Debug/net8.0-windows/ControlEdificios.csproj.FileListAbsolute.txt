@@ -1,0 +1,7 @@
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.Form1.resources
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.csproj.GenerateResource.cache
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.AssemblyInfoInputs.cache
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.AssemblyInfo.cs
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.sourcelink.json
