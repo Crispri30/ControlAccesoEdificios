@@ -155,7 +155,7 @@ namespace ControlAccesoPrueba.Forms
             try
             {
                 int visitanteID = int.Parse(txtIDVis.Text);
-              
+
                 var repo = new VisitanteRepository();
                 repo.EliminarVisitantes(visitanteID);
 
@@ -169,6 +169,11 @@ namespace ControlAccesoPrueba.Forms
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
