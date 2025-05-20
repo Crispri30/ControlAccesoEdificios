@@ -40,3 +40,28 @@ Interfaz dedicada al personal de vigilancia para controlar accesos en tiempo rea
 
 ## Instrucciones para compilar y ejecutar:
 
+### 1. Requisitos
+- Visual Studio 2019 o superior
+- .NET Framework 4.7.2 o superior
+- SQL Server LocalDB o SQL Server Express
+
+### 2. Pasos para ejecutar
+
+#### 1. Clona el repositorio:
+git clone https://github.com/tu-usuario/ControlEdificios.git
+
+#### 2. Abre la solución en Visual Studio: ControlEdificios.sln.
+
+#### 3.Restarurar la base de datos:
+
+- Ubica el archivo ControlAccesoEdificios.sql en la carpeta Base de datos.
+- Ábrelo en SQL Server Management Studio (SSMS) o en el editor de consultas de Visual Studio.
+- Ejecuta el script para crear la base de datos ControlEdificios, sus tablas y los datos predeterminados de login de usuarios.
+
+#### 4. Configura la cadena de conexión en la clase ConexionBD.cs:
+
+- private readonly string connectionString =="miConexion" connectionString="Server=.;Database=ControlEdificios;Trusted_Connection=True;TrustServerCertificate=True;"
+
+#### 5. Compila el proyecto (Ctrl + Shift + B).
+
+#### 6. Ejecuta la aplicación (F5).
