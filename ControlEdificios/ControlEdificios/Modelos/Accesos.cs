@@ -8,5 +8,11 @@ namespace ControlEdificios.Modelos
 {
     public class Accesos
     {
+        public int AccesoID { get; set; }
+        public int? EmpleadoID { get; set; }
+        public int? VisitanteID { get; set; }
+        public int ZonaID { get; set; }
+        public DateTime FechaHoraEntrada { get; set; }
+        public DateTime? FechaHoraSalida { get; set; }
     }
 }
