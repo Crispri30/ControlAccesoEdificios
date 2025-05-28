@@ -31,7 +31,7 @@ namespace ControlAccesoPrueba.Forms
             {
                 int empleadoID = int.Parse(txtID.Text);
                 string nombre = txtNombre.Text;
-                string zonaAcceso = txtZona.Text;
+                
 
                 if (!Enum.TryParse(cmbRol.SelectedItem.ToString(), out RolEmpleado rolseleccionado))
                 {
@@ -39,12 +39,12 @@ namespace ControlAccesoPrueba.Forms
                 }
 
                 var repo = new EmpleadoRepository();
-                repo.AgregarEmpleado(empleadoID, nombre, rolseleccionado, zonaAcceso);
+                repo.AgregarEmpleado(empleadoID, nombre, rolseleccionado);
                 MessageBox.Show("Empleado agregado correctamente");
 
                 txtID.Clear();
                 txtNombre.Clear();
-                txtZona.Clear();
+                
                 cmbRol.SelectedIndex = 0;
 
             }
@@ -80,7 +80,6 @@ namespace ControlAccesoPrueba.Forms
             {
                 int empleadoID = int.Parse(txtID.Text);
                 string nombre = txtNombre.Text;
-                string zonaAcceso = txtZona.Text;
 
                 if (!Enum.TryParse(cmbRol.SelectedItem.ToString(), out RolEmpleado rolseleccionado))
                 {
@@ -88,11 +87,10 @@ namespace ControlAccesoPrueba.Forms
                 }
 
                 var repo = new EmpleadoRepository();
-                repo.ActualizarEmpleado(empleadoID, nombre, rolseleccionado, zonaAcceso);
+                repo.ActualizarEmpleado(empleadoID, nombre, rolseleccionado);
 
                 txtID.Clear();
                 txtNombre.Clear();
-                txtZona.Clear();
                 cmbRol.SelectedIndex = 0;
 
             }

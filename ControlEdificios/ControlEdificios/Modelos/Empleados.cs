@@ -18,7 +18,5 @@ namespace ControlAccesoPrueba.Modelos
         public int EmpleadoID { get; set; }
         public string Nombre { get; set; }
         public RolEmpleado Rol { get; set; }
-        public string ZonaAcceso { get; set; }
-
     }
 }

@@ -9,7 +9,13 @@ CREATE TABLE Empleados (
 	EmpleadoID INT PRIMARY KEY,
 	Nombre NVARCHAR(100) NOT NULL,
 	Rol NVARCHAR(50) NOT NULL,
-	ZonaAcceso NVARCHAR(100)
+);
+
+--Tabla EmpleadoZonas
+CREATE TABLE EmpleadoZonas (
+	EmpleadoID INT FOREIGN KEY REFERENCES Empleados(EmpleadoID),
+	ZonasID INT FOREIGN KEY REFERENCES Zonas(ZonasID),
+	PRIMARY KEY (EmpleadoID,ZonasID)
 );
 
 --Tabla de Usuarios
@@ -58,6 +64,12 @@ CREATE TABLE AlertaSeguridad (
 	FOREIGN KEY (EmpleadoID) REFERENCES Empleados(EmpleadoID)
 );
 
+--Tabla EmpleadoZonas
+CREATE TABLE EmpleadoZonas(
+	EmpleadoID INT FOREIGN KEY REFERENCES Empleados(EmpleadoID),
+	ZonasID INT FOREIGN KEY REFERENCES Zonas(ZonasID)
+	PRIMARY KEY (EmpleadoID,ZonasID)
+);
 
 -- PROCEDIMIENTOS
 
@@ -108,7 +120,60 @@ BEGIN
 	WHERE Usuario = @Usuario AND Contraseña = @Contraseña;
 END
 
+-- Procedimiento Asignar Zona
+CREATE PROCEDURE SP_AsignarZona
+	@EmpleadoID INT,
+	@Rol NVARCHAR(50)
+AS
+BEGIN
+	DELETE FROM [ControlEdificios].[dbo].[EmpleadoZonas] WHERE EmpleadoID = @EmpleadoID
+
+	IF @Rol = 'Empleado'
+	BEGIN
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 1);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 2);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 3);
+	END
+
+	IF @Rol = 'Administrador'
+	BEGIN
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 1);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 2);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 3);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 4);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 5);
+	END
+
+	IF @Rol = 'Seguridad'
+	BEGIN
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 1);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 2);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 3);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 4);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 5);
+		INSERT INTO EmpleadoZonas VALUES (@EmpleadoID, 6);
+	END
+END
 
 INSERT INTO Usuarios (Usuario,Contraseña,Rol)
 
 	VALUES ('Cristian','3000','Administrador')
+INSERT INTO Usuarios (Usuario,Contraseña,Rol)
+
+	VALUES ('Manuela','2000','Administrador')
+INSERT INTO Usuarios (Usuario,Contraseña,Rol)
+
+	VALUES ('Camilo','1000','Administrador')
+
+INSERT INTO Zonas(NombreZona, AccesoRestringido)
+VALUES ('Principal', 1)
+INSERT INTO Zonas(NombreZona, AccesoRestringido)
+VALUES ('Oficinas', 1)
+INSERT INTO Zonas(NombreZona, AccesoRestringido)
+VALUES ('Restaurante', 1)
+INSERT INTO Zonas(NombreZona, AccesoRestringido)
+VALUES ('Racks', 1)
+INSERT INTO Zonas(NombreZona, AccesoRestringido)
+VALUES ('Primeros Auxilios', 1)
+INSERT INTO Zonas(NombreZona, AccesoRestringido)
+VALUES ('Terraza', 1)

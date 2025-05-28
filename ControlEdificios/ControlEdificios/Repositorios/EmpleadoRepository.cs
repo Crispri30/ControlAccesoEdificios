@@ -16,17 +16,36 @@ namespace ControlAccesoPrueba.Repositorios
         //CRUD
 
         //Agregar Empleados
-        public void AgregarEmpleado(int empleadoID, string nombre, RolEmpleado rol, string zonaAcceso)
+        public void AgregarEmpleado(int empleadoID, string nombre, RolEmpleado rol)
         {
             var conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
 
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO Empleados (EmpleadoID,Nombre, Rol, ZonaAcceso) VALUES (@EmpleadoID,@Nombre, @Rol, @ZonaAcceso)", conexion))
+            using (SqlCommand verificar = new SqlCommand("SELECT COUNT (*) FROM Empleados WHERE EmpleadoID = @EmpleadoID", conexion))
+            {
+                verificar.Parameters.AddWithValue("@EmpleadoID", empleadoID);
+                
+                int cant = verificar.ex();
+                if (cant > 0) {
+                    MessageBox.Show("Ya existe un empleado con este ID");
+                }
+            } 
+
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Empleados (EmpleadoID,Nombre, Rol) VALUES (@EmpleadoID,@Nombre, @Rol)", conexion))
             {
                 cmd.Parameters.AddWithValue("@EmpleadoID", empleadoID);
                 cmd.Parameters.AddWithValue("@Nombre", nombre);
                 cmd.Parameters.AddWithValue("@Rol", rol.ToString());
-                cmd.Parameters.AddWithValue("@ZonaAcceso", zonaAcceso);
                 cmd.ExecuteNonQuery();
+            }
+
+            using (SqlCommand proc = new SqlCommand ("SP_AsignarZona", conexion))
+            {
+                proc.CommandType = System.Data.CommandType.StoredProcedure;
+
+                proc.Parameters.AddWithValue("@EmpleadoID", empleadoID);
+                proc.Parameters.AddWithValue("@Rol", rol.ToString());
+
+                proc.ExecuteNonQuery();
             }
             ConexionBD.ObtenerInstancia().CerrarConexion();
         }
@@ -38,7 +57,7 @@ namespace ControlAccesoPrueba.Repositorios
 
             SqlConnection conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
 
-            using (SqlCommand cmd = new SqlCommand("SELECT EmpleadoID, Nombre, Rol, ZonaAcceso FROM Empleados", conexion))
+            using (SqlCommand cmd = new SqlCommand("SELECT EmpleadoID, Nombre, Rol FROM Empleados", conexion))
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
 
@@ -48,27 +67,26 @@ namespace ControlAccesoPrueba.Repositorios
                     {
                         EmpleadoID = reader.GetInt32(0),
                         Nombre = reader.GetString(1),
-                        Rol = Enum.Parse<RolEmpleado>(reader.GetString(2)),
-                        ZonaAcceso = reader.IsDBNull(3) ? null : reader.GetString(3)
+                        Rol = Enum.Parse<RolEmpleado>(reader.GetString(2))
                     });
                 }
             }
+
             ConexionBD.ObtenerInstancia().CerrarConexion();
 
             return listaEmpleados;
         }
 
         //Actualizar Empleados
-        public void ActualizarEmpleado(int empleadoID, string nombre, RolEmpleado rol, string zonaAcceso)
+        public void ActualizarEmpleado(int empleadoID, string nombre, RolEmpleado rol)
         {
             var conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
 
-            using (SqlCommand cmd = new SqlCommand("UPDATE Empleados SET Nombre=@Nombre, Rol=@Rol, ZonaAcceso=@ZonaAcceso WHERE EmpleadoID=@EmpleadoID ", conexion))
+            using (SqlCommand cmd = new SqlCommand("UPDATE Empleados SET Nombre=@Nombre, Rol=@Rol WHERE EmpleadoID=@EmpleadoID ", conexion))
             {
                 cmd.Parameters.AddWithValue("@EmpleadoID", empleadoID);
                 cmd.Parameters.AddWithValue("@Nombre", nombre);
                 cmd.Parameters.AddWithValue("@Rol", rol.ToString());
-                cmd.Parameters.AddWithValue("@ZonaAcceso", zonaAcceso);
 
                 int filas_afectadas = cmd.ExecuteNonQuery();
 
@@ -80,6 +98,16 @@ namespace ControlAccesoPrueba.Repositorios
                 {
                     MessageBox.Show("Empleado actualizado correctamente");
                 }
+            }
+
+            using (SqlCommand proc = new SqlCommand("SP_AsignarZona", conexion))
+            {
+                proc.CommandType = System.Data.CommandType.StoredProcedure;
+
+                proc.Parameters.AddWithValue("@EmpleadoID", empleadoID);
+                proc.Parameters.AddWithValue("@Rol", rol.ToString());
+
+                proc.ExecuteNonQuery();
             }
             ConexionBD.ObtenerInstancia().CerrarConexion();
 
