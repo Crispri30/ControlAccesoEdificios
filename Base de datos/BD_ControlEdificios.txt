@@ -37,7 +37,9 @@ CREATE TABLE Visitantes (
 CREATE TABLE Zonas (
 	ZonasID INT PRIMARY KEY IDENTITY(1,1),
 	NombreZona NVARCHAR(50) NOT NULL,
-	AccesoRestringido BIT NOT NULL
+	AccesoRestringido BIT NOT NULL,
+	HoraInicio TIME,
+	HoraFin TIME
 );
 
 --Tabla de Accesos
@@ -177,3 +179,74 @@ INSERT INTO Zonas(NombreZona, AccesoRestringido)
 VALUES ('Primeros Auxilios', 1)
 INSERT INTO Zonas(NombreZona, AccesoRestringido)
 VALUES ('Terraza', 1)
+
+
+USE [ControlEdificios]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_RegistrarAcceso]    Script Date: 28/05/2025 2:22:49 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SP_RegistrarAcceso]
+	@EmpleadoID INT = NULL,
+	@VisitanteID INT = NULL,
+	@ZonaID INT,
+	@Mensaje NVARCHAR(100) OUTPUT
+
+AS
+BEGIN
+	DECLARE @AccesoID INT;
+
+	--Verificar si ya tiene acceso un empleado
+	IF @EmpleadoID IS NOT NULL
+	BEGIN
+		SELECT @AccesoID = AccesoID FROM Accesos
+		WHERE EmpleadoID = @EmpleadoID AND FechaHoraSalida IS NULL;
+
+		IF @AccesoID IS NOT NULL
+		BEGIN
+			UPDATE Accesos
+			SET FechaHoraSalida = GETDATE()
+			WHERE AccesoID = @AccesoID;
+
+			SET @Mensaje = 'Salida registrada';
+
+			RETURN;
+		END
+		--Si no hay acceso activo se registra uno
+		ELSE 
+		BEGIN
+			INSERT INTO Accesos(EmpleadoID,ZonaID,FechaHoraEntrada)
+			VALUES (@EmpleadoID,@ZonaID,GETDATE());
+
+			SET @Mensaje = 'Ingreso registrado';
+
+			RETURN;
+		END
+	END
+
+	--Verificar si ya tiene acceso un visitante
+	IF @VisitanteID IS NOT NULL
+	BEGIN
+		SELECT @AccesoID = AccesoID FROM Accesos
+		WHERE VisitanteID = @VisitanteID AND FechaHoraSalida IS NULL;
+
+		IF @AccesoID IS NOT NULL
+		BEGIN
+			UPDATE Accesos
+			SET FechaHoraSalida = GETDATE()
+			WHERE AccesoID = @AccesoID;
+			SET @Mensaje = 'Salida registrada';
+		RETURN;
+		END
+
+		ELSE
+		BEGIN
+			INSERT INTO Accesos(VisitanteID,ZonaID,FechaHoraEntrada)
+			VALUES (@VisitanteID,@ZonaID,GETDATE());
+			SET @Mensaje = 'Ingreso registrado';
+		RETURN;
+		END
+	END
+END
