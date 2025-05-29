@@ -1,15 +1,16 @@
-﻿using ControlAccesoPrueba.Utilidades;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ControlAccesoPrueba.Modelos;
+using ControlEdificios.Modelos;
+using ControlEdificios.Utilidades;
+using System.Data;
 
 
-namespace ControlAccesoPrueba.Repositorios
+namespace ControlEdificios.Repositorios
 {
     public class EmpleadoRepository
     {
@@ -24,7 +25,7 @@ namespace ControlAccesoPrueba.Repositorios
             {
                 verificar.Parameters.AddWithValue("@EmpleadoID", empleadoID);
                 
-                int cant = verificar.ex();
+                int cant = (int)verificar.ExecuteScalar();
                 if (cant > 0) {
                     MessageBox.Show("Ya existe un empleado con este ID");
                 }
@@ -136,28 +137,89 @@ namespace ControlAccesoPrueba.Repositorios
         }
 
         //Metodo para registrar el acceso del empleado
-        public void RegistrarAccesoEmpleado(int empleadoID, int zonaID, DateTime fechaEntrada)
+        public string RegistrarAccesoEmpleado(int empleadoID, int zonaID)
         {
-            //obtener la instancia única de la conexion y abrirla
+
+            if (!TieneAcceso(empleadoID, zonaID))
+            {
+                return "Acceso denegado: no tiene permiso para entrar a esta zona";
+            }
+
+            if (!HorarioPermitido(zonaID))
+            {
+                return "Acceso denegado: fuera de horario permitido";
+            }
+
             SqlConnection conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
 
             //Crear objeto SqlCommand indicando el nombre del procedimiento almacenado
-            using (SqlCommand cmd = new SqlCommand("Sp_RegistrarAccesoEmpleado", conexion))
+            using (SqlCommand cmd = new SqlCommand("Sp_RegistrarAcceso", conexion))
             {
                 //Indicar a SqlCommand que voy a utlizar un procedimiento almacenado
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Agregar parametros que el procedimiento almacenado va recibir
                 cmd.Parameters.AddWithValue("@EmpleadoID", empleadoID);
+                cmd.Parameters.AddWithValue("@VisitanteID", DBNull.Value);
                 cmd.Parameters.AddWithValue("@ZonaID", zonaID);
-                cmd.Parameters.AddWithValue("@FechaEntrada", fechaEntrada);
+
+                SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(mensajeParam);
 
                 //Ejecutar el comando en la base de datos sin esperar un resultado
                 cmd.ExecuteNonQuery();
+
+                ConexionBD.ObtenerInstancia().CerrarConexion();
+
+                return mensajeParam.Value.ToString();
             }
 
-            //Cerrar la conexion
+            
+        }
+
+        private bool TieneAcceso(int empleadoID, int zonaID)
+        {
+            SqlConnection conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
+
+            using (SqlCommand cmd =  new SqlCommand ("SELECT COUNT (*) FROM EmpleadoZonas WHERE EmpleadoID = @EmpleadoID AND ZonasID = @ZonasID", conexion))
+            {
+                cmd.Parameters.AddWithValue("@EmpleadoID", empleadoID);
+                cmd.Parameters.AddWithValue("@ZonasID", zonaID);
+
+                int count = (int)cmd.ExecuteScalar();
+
+                ConexionBD.ObtenerInstancia().CerrarConexion();
+                return (count > 0);
+            }
+        }
+
+        private bool HorarioPermitido(int zonaID)
+        {
+            SqlConnection conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
+
+            using (SqlCommand cmd = new SqlCommand ("SELECT HoraInicio, HoraFin FROM Zonas WHERE ZonasID = @ZonasID ", conexion))
+            {
+                cmd.Parameters.AddWithValue("@ZonasID", zonaID);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read()) 
+                    {
+                        TimeSpan horaInicio = reader.GetTimeSpan(0);
+                        TimeSpan horaFin = reader.GetTimeSpan(1);
+                        TimeSpan ahora = DateTime.Now.TimeOfDay;
+
+                        ConexionBD.ObtenerInstancia().CerrarConexion();
+                        return ahora >= horaInicio && ahora <= horaFin;
+                    }
+                } 
+            }
             ConexionBD.ObtenerInstancia().CerrarConexion();
+            return false;
+
         }
     }
 }

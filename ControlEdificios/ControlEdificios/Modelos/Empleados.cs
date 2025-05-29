@@ -5,7 +5,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControlAccesoPrueba.Modelos
+namespace ControlEdificios.Modelos
 {
     public enum RolEmpleado
     {

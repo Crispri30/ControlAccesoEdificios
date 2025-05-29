@@ -1,4 +1,5 @@
-﻿using ControlAccesoPrueba.Utilidades;
+﻿using ControlEdificios.Modelos;
+using ControlEdificios.Utilidades;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;

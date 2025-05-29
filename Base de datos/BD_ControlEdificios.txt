@@ -75,30 +75,6 @@ CREATE TABLE EmpleadoZonas(
 
 -- PROCEDIMIENTOS
 
---Registrar empleado
-CREATE PROCEDURE SP_RegistrarAccesoEmpleado
-	@EmpleadoID INT,
-	@ZonaID INT,
-	@FechaEntrada DATETIME
-AS
-BEGIN
-	INSERT INTO	ControlEdificios.dbo.Accesos (EmpleadoID, ZonaID, FechaHoraEntrada, VisitanteID)
-	VALUES (@EmpleadoID, @ZonaID, @FechaEntrada, NULL);
-END;
-
---Registrar visitante
-
-CREATE PROCEDURE SP_RegistrarAccesoVisitante
-    @VisitanteID INT,
-    @ZonaID INT,
-    @FechaEntrada DATETIME
-AS
-BEGIN
-    INSERT INTO [ControlEdificios].[dbo].[Accesos] (VisitanteID, ZonaID, FechaHoraEntrada, EmpleadoID)
-    VALUES (@VisitanteID, @ZonaID, @FechaEntrada, NULL);
-END;
-
-
 --Registrar Alerta
 
 CREATE PROCEDURE SP_GenerarAlerta
@@ -123,6 +99,7 @@ BEGIN
 END
 
 -- Procedimiento Asignar Zona
+
 CREATE PROCEDURE SP_AsignarZona
 	@EmpleadoID INT,
 	@Rol NVARCHAR(50)
@@ -157,38 +134,8 @@ BEGIN
 	END
 END
 
-INSERT INTO Usuarios (Usuario,Contraseña,Rol)
-
-	VALUES ('Cristian','3000','Administrador')
-INSERT INTO Usuarios (Usuario,Contraseña,Rol)
-
-	VALUES ('Manuela','2000','Administrador')
-INSERT INTO Usuarios (Usuario,Contraseña,Rol)
-
-	VALUES ('Camilo','1000','Administrador')
-
-INSERT INTO Zonas(NombreZona, AccesoRestringido)
-VALUES ('Principal', 1)
-INSERT INTO Zonas(NombreZona, AccesoRestringido)
-VALUES ('Oficinas', 1)
-INSERT INTO Zonas(NombreZona, AccesoRestringido)
-VALUES ('Restaurante', 1)
-INSERT INTO Zonas(NombreZona, AccesoRestringido)
-VALUES ('Racks', 1)
-INSERT INTO Zonas(NombreZona, AccesoRestringido)
-VALUES ('Primeros Auxilios', 1)
-INSERT INTO Zonas(NombreZona, AccesoRestringido)
-VALUES ('Terraza', 1)
-
-
-USE [ControlEdificios]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_RegistrarAcceso]    Script Date: 28/05/2025 2:22:49 p. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER PROCEDURE [dbo].[SP_RegistrarAcceso]
+-- Registrar Acceso
+CREATE PROCEDURE [dbo].[SP_RegistrarAcceso]
 	@EmpleadoID INT = NULL,
 	@VisitanteID INT = NULL,
 	@ZonaID INT,
@@ -250,3 +197,28 @@ BEGIN
 		END
 	END
 END
+
+INSERT INTO Usuarios (Usuario,Contraseña,Rol)
+
+	VALUES ('Cristian','3000','Administrador')
+INSERT INTO Usuarios (Usuario,Contraseña,Rol)
+
+	VALUES ('Manuela','2000','Administrador')
+INSERT INTO Usuarios (Usuario,Contraseña,Rol)
+
+	VALUES ('Camilo','1000','Administrador')
+
+INSERT INTO Zonas(NombreZona, AccesoRestringido, HoraInicio, HoraFin)
+VALUES ('Principal', 1, '08:00:00', '17:00:00')
+INSERT INTO Zonas(NombreZona, AccesoRestringido, HoraInicio, HoraFin)
+VALUES ('Oficinas', 1, '08:00:00', '17:00:00')
+INSERT INTO Zonas(NombreZona, AccesoRestringido, HoraInicio, HoraFin)
+VALUES ('Restaurante', 1, '08:00:00', '17:00:00')
+INSERT INTO Zonas(NombreZona, AccesoRestringido, HoraInicio, HoraFin)
+VALUES ('Racks', 1, '06:00:00', '22:00:00')
+INSERT INTO Zonas(NombreZona, AccesoRestringido, HoraInicio, HoraFin)
+VALUES ('Primeros Auxilios', 1, '06:00:00', '22:00:00'))
+INSERT INTO Zonas(NombreZona, AccesoRestringido, HoraInicio, HoraFin)
+VALUES ('Terraza', 1, '06:00:00', '22:00:00'))
+
+

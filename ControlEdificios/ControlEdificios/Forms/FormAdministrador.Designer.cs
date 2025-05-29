@@ -32,10 +32,8 @@
             cmbRol = new ComboBox();
             txtID = new TextBox();
             bttAgregar = new Button();
-            txtZona = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             label4 = new Label();
             bttEliminar = new Button();
             bttActualizar = new Button();
@@ -65,7 +63,7 @@
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Location = new Point(148, 273);
+            cmbRol.Location = new Point(148, 232);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(195, 23);
             cmbRol.TabIndex = 1;
@@ -89,13 +87,6 @@
             bttAgregar.UseVisualStyleBackColor = false;
             bttAgregar.Click += bttAgregar_Click;
             // 
-            // txtZona
-            // 
-            txtZona.Location = new Point(148, 224);
-            txtZona.Name = "txtZona";
-            txtZona.Size = new Size(195, 23);
-            txtZona.TabIndex = 4;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -117,22 +108,11 @@
             label2.TabIndex = 6;
             label2.Text = "NOMBRE:";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(39, 227);
-            label3.Name = "label3";
-            label3.RightToLeft = RightToLeft.No;
-            label3.Size = new Size(43, 15);
-            label3.TabIndex = 7;
-            label3.Text = "ZONA:";
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(39, 276);
+            label4.Location = new Point(51, 232);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.No;
             label4.Size = new Size(33, 15);
@@ -324,10 +304,8 @@
             Controls.Add(bttActualizar);
             Controls.Add(bttEliminar);
             Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(txtZona);
             Controls.Add(bttAgregar);
             Controls.Add(txtID);
             Controls.Add(cmbRol);
@@ -345,10 +323,8 @@
         private ComboBox cmbRol;
         private TextBox txtID;
         private Button bttAgregar;
-        private TextBox txtZona;
         private Label label1;
         private Label label2;
-        private Label label3;
         private Label label4;
         private Button bttEliminar;
         private Button bttActualizar;

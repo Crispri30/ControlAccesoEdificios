@@ -1,4 +1,5 @@
-﻿using ControlAccesoPrueba.Utilidades;
+﻿using ControlEdificios.Modelos;
+using ControlEdificios.Utilidades;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -105,7 +106,7 @@ namespace ControlEdificios.Repositorios
             }
             ConexionBD.ObtenerInstancia().ObtenerConexion();
         }
-
+        /*
         public void RegistrarAccesoVisitante(int visitanteID, string nombre, string telefono, string descripcion)
         {
             SqlConnection conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
@@ -124,7 +125,7 @@ namespace ControlEdificios.Repositorios
 
             ConexionBD.ObtenerInstancia().CerrarConexion();
 
-        }
+        }*/
 
     }
 }

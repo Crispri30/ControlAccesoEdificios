@@ -7,6 +7,9 @@
     <Compile Update="Forms\FormAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\FormRegistrarAcceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\FormSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,5 +1,7 @@
-﻿using ControlAccesoPrueba.Modelos;
-using ControlAccesoPrueba.Repositorios;
+﻿using ControlEdificios.Modelos;
+using ControlEdificios.Repositorios;
+using ControlEdificios.Utilidades;
+using ControlEdificios.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,6 +57,11 @@ namespace ControlAccesoPrueba.Forms
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bttRegistrarAcceso_Click(object sender, EventArgs e)
+        {
+            new FormRegistrarAcceso().Show();
         }
     }
 }

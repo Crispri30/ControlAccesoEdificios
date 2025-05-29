@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ControlAccesoPrueba.Repositorios;
-using ControlAccesoPrueba.Modelos;
+using ControlEdificios.Modelos;
 using ControlEdificios.Repositorios;
 
 namespace ControlAccesoPrueba.Forms
@@ -64,7 +63,6 @@ namespace ControlAccesoPrueba.Forms
 
                 txtID.Clear();
                 txtNombre.Clear();
-                txtZona.Clear();
                 cmbRol.SelectedIndex = 0;
 
             }

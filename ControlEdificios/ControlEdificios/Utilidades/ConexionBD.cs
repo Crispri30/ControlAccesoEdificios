@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
 
-namespace ControlAccesoPrueba.Utilidades
+namespace ControlEdificios.Utilidades
 {
     public class ConexionBD
     {
