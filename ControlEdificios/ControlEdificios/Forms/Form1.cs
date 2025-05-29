@@ -58,10 +58,5 @@ namespace ControlAccesoPrueba.Forms
         {
 
         }
-
-        private void bttRegistrarAcceso_Click(object sender, EventArgs e)
-        {
-            new FormRegistrarAcceso().Show();
-        }
     }
 }

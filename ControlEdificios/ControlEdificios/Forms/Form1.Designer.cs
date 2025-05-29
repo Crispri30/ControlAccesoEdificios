@@ -35,20 +35,18 @@
             lblContraseña = new Label();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            bttRegistrarAcceso = new Button();
             SuspendLayout();
             // 
             // TxtUsuario
             // 
-            TxtUsuario.Location = new Point(155, 141);
+            TxtUsuario.Location = new Point(304, 124);
             TxtUsuario.Name = "TxtUsuario";
             TxtUsuario.Size = new Size(193, 23);
             TxtUsuario.TabIndex = 0;
             // 
             // TxtContraseña
             // 
-            TxtContraseña.Location = new Point(157, 209);
+            TxtContraseña.Location = new Point(304, 204);
             TxtContraseña.Name = "TxtContraseña";
             TxtContraseña.Size = new Size(193, 23);
             TxtContraseña.TabIndex = 1;
@@ -57,7 +55,7 @@
             // 
             BttIngresar.BackColor = Color.Bisque;
             BttIngresar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BttIngresar.Location = new Point(142, 268);
+            BttIngresar.Location = new Point(341, 264);
             BttIngresar.Name = "BttIngresar";
             BttIngresar.Size = new Size(114, 60);
             BttIngresar.TabIndex = 2;
@@ -69,7 +67,7 @@
             // 
             lbUsuario.AutoSize = true;
             lbUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbUsuario.Location = new Point(63, 144);
+            lbUsuario.Location = new Point(206, 127);
             lbUsuario.Name = "lbUsuario";
             lbUsuario.Size = new Size(64, 15);
             lbUsuario.TabIndex = 3;
@@ -79,7 +77,7 @@
             // 
             lblContraseña.AutoSize = true;
             lblContraseña.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblContraseña.Location = new Point(63, 212);
+            lblContraseña.Location = new Point(196, 204);
             lblContraseña.Name = "lblContraseña";
             lblContraseña.Size = new Size(88, 15);
             lblContraseña.TabIndex = 4;
@@ -105,36 +103,12 @@
             label2.TabIndex = 6;
             label2.Text = "BIENVENIDO!";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(451, 187);
-            label3.Name = "label3";
-            label3.Size = new Size(126, 15);
-            label3.TabIndex = 7;
-            label3.Text = "REGISTRAR ACCESOS";
-            // 
-            // bttRegistrarAcceso
-            // 
-            bttRegistrarAcceso.BackColor = Color.Bisque;
-            bttRegistrarAcceso.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bttRegistrarAcceso.Location = new Point(606, 167);
-            bttRegistrarAcceso.Name = "bttRegistrarAcceso";
-            bttRegistrarAcceso.Size = new Size(114, 60);
-            bttRegistrarAcceso.TabIndex = 8;
-            bttRegistrarAcceso.Text = "ACCESOS";
-            bttRegistrarAcceso.UseVisualStyleBackColor = false;
-            bttRegistrarAcceso.Click += bttRegistrarAcceso_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PeachPuff;
             ClientSize = new Size(800, 450);
-            Controls.Add(bttRegistrarAcceso);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(lblContraseña);
@@ -158,7 +132,5 @@
         private Label label2;
         private Label lbUsuario;
         private Label lblContraseña;
-        private Label label3;
-        private Button bttRegistrarAcceso;
     }
 }

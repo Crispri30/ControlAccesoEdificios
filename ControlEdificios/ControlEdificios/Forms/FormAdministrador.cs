@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControlEdificios.Forms;
 using ControlEdificios.Modelos;
 using ControlEdificios.Repositorios;
 
@@ -30,7 +31,7 @@ namespace ControlAccesoPrueba.Forms
             {
                 int empleadoID = int.Parse(txtID.Text);
                 string nombre = txtNombre.Text;
-                
+
 
                 if (!Enum.TryParse(cmbRol.SelectedItem.ToString(), out RolEmpleado rolseleccionado))
                 {
@@ -43,7 +44,7 @@ namespace ControlAccesoPrueba.Forms
 
                 txtID.Clear();
                 txtNombre.Clear();
-                
+
                 cmbRol.SelectedIndex = 0;
 
             }
@@ -171,6 +172,11 @@ namespace ControlAccesoPrueba.Forms
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bttAccesos_Click(object sender, EventArgs e)
+        {
+            new FormRegistrarAcceso().Show();
         }
     }
 }

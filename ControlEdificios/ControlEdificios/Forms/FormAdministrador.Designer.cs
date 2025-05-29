@@ -51,6 +51,8 @@
             bttActualizarVis = new Button();
             bttEliminarVis = new Button();
             label11 = new Label();
+            label3 = new Label();
+            bttAccesos = new Button();
             SuspendLayout();
             // 
             // txtNombre
@@ -79,7 +81,7 @@
             // 
             bttAgregar.BackColor = Color.Bisque;
             bttAgregar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bttAgregar.Location = new Point(39, 326);
+            bttAgregar.Location = new Point(39, 276);
             bttAgregar.Name = "bttAgregar";
             bttAgregar.Size = new Size(118, 46);
             bttAgregar.TabIndex = 3;
@@ -123,7 +125,7 @@
             // 
             bttEliminar.BackColor = Color.Bisque;
             bttEliminar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bttEliminar.Location = new Point(131, 378);
+            bttEliminar.Location = new Point(129, 328);
             bttEliminar.Name = "bttEliminar";
             bttEliminar.Size = new Size(118, 46);
             bttEliminar.TabIndex = 9;
@@ -135,7 +137,7 @@
             // 
             bttActualizar.BackColor = Color.Bisque;
             bttActualizar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bttActualizar.Location = new Point(225, 326);
+            bttActualizar.Location = new Point(215, 276);
             bttActualizar.Name = "bttActualizar";
             bttActualizar.Size = new Size(118, 46);
             bttActualizar.TabIndex = 10;
@@ -275,11 +277,33 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(258, 23);
+            label11.Location = new Point(273, 20);
             label11.Name = "label11";
             label11.Size = new Size(264, 30);
             label11.TabIndex = 24;
             label11.Text = "PANEL ADMINISTRADOR";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(21, 409);
+            label3.Name = "label3";
+            label3.Size = new Size(129, 15);
+            label3.TabIndex = 25;
+            label3.Text = "REGISTRAR ACCESOS:";
+            // 
+            // bttAccesos
+            // 
+            bttAccesos.BackColor = Color.Bisque;
+            bttAccesos.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bttAccesos.Location = new Point(177, 392);
+            bttAccesos.Name = "bttAccesos";
+            bttAccesos.Size = new Size(118, 46);
+            bttAccesos.TabIndex = 26;
+            bttAccesos.Text = "ACCESOS";
+            bttAccesos.UseVisualStyleBackColor = false;
+            bttAccesos.Click += bttAccesos_Click;
             // 
             // FormAdministrador
             // 
@@ -287,6 +311,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PeachPuff;
             ClientSize = new Size(800, 450);
+            Controls.Add(bttAccesos);
+            Controls.Add(label3);
             Controls.Add(label11);
             Controls.Add(bttEliminarVis);
             Controls.Add(bttActualizarVis);
@@ -342,5 +368,7 @@
         private Button bttActualizarVis;
         private Button bttEliminarVis;
         private Label label11;
+        private Label label3;
+        private Button bttAccesos;
     }
 }
