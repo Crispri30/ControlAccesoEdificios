@@ -12,7 +12,6 @@ namespace ControlEdificios.Utilidades
     {
         //Cadena de conexion indicando el servidor y la bd
         private readonly string connectionString = "Server=localhost\\SQLEXPRESS;Database=ControlEdificios;Trusted_Connection=True;TrustServerCertificate=True";
-
         //variable con la única instancia de la clase ConexionBD
         private static ConexionBD? instancia;
 
