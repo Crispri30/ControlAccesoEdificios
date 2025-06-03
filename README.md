@@ -34,33 +34,8 @@ Interfaz dedicada al personal de vigilancia para controlar accesos en tiempo rea
 Actualización automática cada 5 segundos mediante un Timer en el formulario FormSeguridad, mostrando accesos con FechaHoraEntrada no nula y FechaHoraSalida nula.
 
 ## Estructura del proyecto
-ControlEdificios/
-|-- Forms/
-|   |-- Form1.cs
-|   |-- FormAdministrador.cs
-|   |-- FormRegistrarAcceso.cs
-|   |-- FormSeguridad.cs
-|
-|-- Modelos/
-|   |-- Accesos.cs
-|   |-- AccesosActivos.cs
-|   |-- AlertaSeguridad.cs
-|   |-- Empleados.cs
-|   |-- UsuarioLogin.cs
-|   |-- Visitantes.cs
-|   |-- Zonas.cs
-|
-|-- Repositorios/
-|   |-- EmpleadoRepository.cs
-|   |-- GenerarAlertaRepository.cs
-|   |-- SeguridadRepository.cs
-|   |-- UsuariosRepository.cs
-|   |-- VisitanteRepository.cs
-|
-|-- Utilidades/
-|   |-- ConexionBD.cs
-|
-|-- Program.cs
+![image](https://github.com/user-attachments/assets/57391605-ca80-43f3-ade8-00c5b1cc60c1)
+
 
 ## Patrones y principios aplicados
 ### Patrones:
