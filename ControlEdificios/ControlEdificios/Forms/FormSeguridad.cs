@@ -41,5 +41,10 @@ namespace ControlAccesoPrueba.Forms
                 MessageBox.Show("Error al cargar accesos activos: " + ex.Message);
             }
         }
+
+        private void dgvAccesosActivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

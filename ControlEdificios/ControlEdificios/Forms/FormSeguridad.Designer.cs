@@ -37,11 +37,13 @@
             // dgvAccesosActivos
             // 
             dgvAccesosActivos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAccesosActivos.Location = new Point(81, 74);
+            dgvAccesosActivos.Location = new Point(57, 44);
+            dgvAccesosActivos.Margin = new Padding(2, 2, 2, 2);
             dgvAccesosActivos.Name = "dgvAccesosActivos";
             dgvAccesosActivos.RowHeadersWidth = 62;
-            dgvAccesosActivos.Size = new Size(681, 382);
+            dgvAccesosActivos.Size = new Size(477, 229);
             dgvAccesosActivos.TabIndex = 0;
+            dgvAccesosActivos.CellContentClick += dgvAccesosActivos_CellContentClick;
             // 
             // timerMonitoreo
             // 
@@ -51,12 +53,11 @@
             // 
             // FormSeguridad
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PeachPuff;
-            ClientSize = new Size(1143, 750);
+            ClientSize = new Size(800, 450);
             Controls.Add(dgvAccesosActivos);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "FormSeguridad";
             Text = "FormSeguridad";
             Load += FormSeguridad_Load;

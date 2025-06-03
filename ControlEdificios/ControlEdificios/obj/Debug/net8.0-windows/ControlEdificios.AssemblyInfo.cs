@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ControlEdificios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00b0c6b4ad2c57edced80b6fc39e07d1217b0968")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+833624bef8b094ce064332361f267974ecb7a110")]
 [assembly: System.Reflection.AssemblyProductAttribute("ControlEdificios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ControlEdificios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

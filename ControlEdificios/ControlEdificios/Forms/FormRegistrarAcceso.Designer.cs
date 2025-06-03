@@ -39,6 +39,7 @@
             txtZonaVis = new TextBox();
             button1 = new Button();
             label11 = new Label();
+            btnReporteDeAccesos = new Button();
             SuspendLayout();
             // 
             // txtEmpleadoID
@@ -143,12 +144,25 @@
             label11.TabIndex = 25;
             label11.Text = "REGISTRAR ACCESOS";
             // 
+            // btnReporteDeAccesos
+            // 
+            btnReporteDeAccesos.BackColor = Color.Bisque;
+            btnReporteDeAccesos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnReporteDeAccesos.Location = new Point(276, 342);
+            btnReporteDeAccesos.Name = "btnReporteDeAccesos";
+            btnReporteDeAccesos.Size = new Size(166, 62);
+            btnReporteDeAccesos.TabIndex = 27;
+            btnReporteDeAccesos.Text = "REPORTE DE ACCESOS";
+            btnReporteDeAccesos.UseVisualStyleBackColor = false;
+            btnReporteDeAccesos.Click += button2_Click;
+            // 
             // FormRegistrarAcceso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PeachPuff;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnReporteDeAccesos);
             Controls.Add(label11);
             Controls.Add(button1);
             Controls.Add(txtZonaVis);
@@ -179,5 +193,6 @@
         private TextBox txtZonaVis;
         private Button button1;
         private Label label11;
+        private Button btnReporteDeAccesos;
     }
 }
