@@ -142,11 +142,50 @@ namespace ControlEdificios.Repositorios
 
             if (!TieneAcceso(empleadoID, zonaID))
             {
+                SqlConnection conexion1 = ConexionBD.ObtenerInstancia().ObtenerConexion();
+
+                using (SqlCommand alerta1 = new SqlCommand("Sp_GenerarAlerta", conexion1))
+                {
+                    alerta1.CommandType = System.Data.CommandType.StoredProcedure;
+                    string tipoAlerta = "Sin permiso para acceder a la zona";
+                    string descripcion = $"El empleado {empleadoID} no tiene acceso para ingresar a la zona {zonaID}";
+                    DateTime fechahora = DateTime.Now;
+
+                    alerta1.Parameters.AddWithValue("@EmpleadoID", empleadoID );
+                    alerta1.Parameters.AddWithValue("@TipoAlerta", tipoAlerta);
+                    alerta1.Parameters.AddWithValue("@Descripcion", descripcion);
+
+                    alerta1.ExecuteNonQuery();
+
+                    ConexionBD.ObtenerInstancia().CerrarConexion();
+
+                }
+
+
                 return "Acceso denegado: no tiene permiso para entrar a esta zona";
             }
 
             if (!HorarioPermitido(zonaID))
             {
+                SqlConnection conexion2 = ConexionBD.ObtenerInstancia().ObtenerConexion();
+
+                using (SqlCommand alerta2 = new SqlCommand("Sp_GenerarAlerta", conexion2))
+                {
+                    alerta2.CommandType = System.Data.CommandType.StoredProcedure;
+                    string tipoAlerta = "El horario no esta permitido";
+                    string descripcion = $"El empleado {empleadoID} no tiene acceso para ingresar a la zona {zonaID} ya que no esta dentro del horario establecido";
+                    DateTime fechahora = DateTime.Now;
+
+                    alerta2.Parameters.AddWithValue("@EmpleadoID", empleadoID);
+                    alerta2.Parameters.AddWithValue("@TipoAlerta", tipoAlerta);
+                    alerta2.Parameters.AddWithValue("@Descripcion", descripcion);
+
+                    alerta2.ExecuteNonQuery();
+
+                    ConexionBD.ObtenerInstancia().CerrarConexion();
+
+                }
+
                 return "Acceso denegado: fuera de horario permitido";
             }
 
@@ -217,6 +256,7 @@ namespace ControlEdificios.Repositorios
                     }
                 } 
             }
+
             ConexionBD.ObtenerInstancia().CerrarConexion();
             return false;
 
