@@ -207,3 +207,9 @@ C:\Users\manue\Source\Repos\ControlAccesoEdificios\ControlEdificios\ControlEdifi
 C:\Users\manue\Source\Repos\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.pdb
 C:\Users\manue\Source\Repos\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.genruntimeconfig.cache
 C:\Users\manue\Source\Repos\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ref\ControlEdificios.dll
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\user\OneDrive\Escritorio\ControlAccesoEdificios\ControlEdificios\ControlEdificios\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll

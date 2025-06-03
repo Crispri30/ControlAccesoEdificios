@@ -3,6 +3,7 @@ using ControlEdificios.Utilidades;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,26 +107,35 @@ namespace ControlEdificios.Repositorios
             }
             ConexionBD.ObtenerInstancia().ObtenerConexion();
         }
-        /*
-        public void RegistrarAccesoVisitante(int visitanteID, string nombre, string telefono, string descripcion)
+
+        public string RegistrarAccesoVisitante(int visitanteID, int zonaID)
         {
             SqlConnection conexion = ConexionBD.ObtenerInstancia().ObtenerConexion();
 
-            using (SqlCommand cmd = new SqlCommand("Sp_RegistrarAccesoVisitante", conexion))
+            using (SqlCommand cmd = new SqlCommand("Sp_RegistrarAcceso", conexion))
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
+
+                //Agregar parametros que el procedimiento almacenado va recibir
+                cmd.Parameters.AddWithValue("@EmpleadoID", DBNull.Value);
                 cmd.Parameters.AddWithValue("@VisitanteID", visitanteID);
-                cmd.Parameters.AddWithValue("@Nombre", nombre);
-                cmd.Parameters.AddWithValue("@Telefono", telefono);
-                cmd.Parameters.AddWithValue("@Descripcion", descripcion);
+                cmd.Parameters.AddWithValue("@ZonaID", zonaID);
 
+                SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(mensajeParam);
+
+                //Ejecutar el comando en la base de datos sin esperar un resultado
                 cmd.ExecuteNonQuery();
+
+                ConexionBD.ObtenerInstancia().CerrarConexion();
+
+                return mensajeParam.Value.ToString();
             }
-
-            ConexionBD.ObtenerInstancia().CerrarConexion();
-
-        }*/
+        }
 
     }
 }

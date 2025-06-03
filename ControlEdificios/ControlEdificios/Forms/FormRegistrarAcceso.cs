@@ -33,5 +33,19 @@ namespace ControlEdificios.Forms
             txtEmpleadoID.Clear();
             txtZonaID.Clear();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int visitanteID = int.Parse(txtVisitanteID.Text);
+            int zonaID = int.Parse(txtZonaVis.Text);
+
+            var repo = new VisitanteRepository();
+            string resultado = repo.RegistrarAccesoVisitante(visitanteID, zonaID);
+
+            MessageBox.Show(resultado);
+
+            txtVisitanteID.Clear();
+            txtZonaVis.Clear();
+        }
     }
 }
