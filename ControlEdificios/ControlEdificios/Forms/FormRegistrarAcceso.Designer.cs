@@ -58,7 +58,6 @@
             // 
             // bttAcceso
             // 
-            bttAcceso.BackColor = Color.Bisque;
             bttAcceso.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             bttAcceso.Location = new Point(99, 227);
             bttAcceso.Name = "bttAcceso";
