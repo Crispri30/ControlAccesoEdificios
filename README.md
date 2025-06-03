@@ -8,22 +8,99 @@ Este proyecto tiene como propósito fundamental explorar a fondo las tecnología
 
 ## Funcionalidades principales:
 ### 1. Auntenticación de usuarios:
-Permite que los usuarios autorizados como admin. o personal de seguridad inicien sesión en el sistema mediante las credenciales.
+Permite el inicio de sesión por parte de usuarios con roles autorizados (Administrador, Seguridad), usando el procedimiento almacenado SP_ValidarLogin.
 
 ### 2. Control de accesos:
 Registro y validación de entradas y salidas de personas (empleados o visitantes) al edificio. Controlado desde una interfaz específica para personal de seguridad.
 
 ### 3. Gestión de empleados:
-Permite registrar, modificar, consultar y eliminar datos de empleados. Cada empleado tiene roles asignados que afectan su nivel de acceso.
+Permite registrar, modificar, consultar y eliminar (CRUD) datos de empleados desde el panel de Admin. Cada empleado tiene roles asignados que afectan su nivel de acceso.
 
 ### 4. Alertas de seguridad:
-Generación automática de alertas cuando se detectan intentos de acceso no autorizados, fuera de horario o por usuarios no registrados.
+Generación automática de alertas cuando se detectan intentos de acceso no autorizados, fuera de horario o por usuarios no registrados mediante SP_GenerarAlerta.
 
 ### 5. Panel del Admin:
-Acceso a un formulario exclusivo con funcionalidades avanzadas para la gestión del sistema, como creación de usuarios, consulta de accesos y revisión de alertas.
+Permite:
+- Registrar nuevos usuarios.
+- Consultar historial de accesos.
+- Ver y gestionar alertas.
+- Gestinar empleados y sus zonas de acceso.
+- Ver monitoreo en tiempo real.
 
 ### 6. Panel del personal de seguridad:
 Interfaz dedicada al personal de vigilancia para controlar accesos en tiempo real, verificar identidades y actuar ante alertas emitidas.
+
+### 7. Monitoreo en tiempo real:
+Actualización automática cada 5 segundos mediante un Timer en el formulario FormSeguridad, mostrando accesos con FechaHoraEntrada no nula y FechaHoraSalida nula.
+
+## Estructura del proyecto
+ControlEdificios/
+|-- Forms/
+|   |-- Form1.cs
+|   |-- FormAdministrador.cs
+|   |-- FormRegistrarAcceso.cs
+|   |-- FormSeguridad.cs
+|
+|-- Modelos/
+|   |-- Accesos.cs
+|   |-- AccesosActivos.cs
+|   |-- AlertaSeguridad.cs
+|   |-- Empleados.cs
+|   |-- UsuarioLogin.cs
+|   |-- Visitantes.cs
+|   |-- Zonas.cs
+|
+|-- Repositorios/
+|   |-- EmpleadoRepository.cs
+|   |-- GenerarAlertaRepository.cs
+|   |-- SeguridadRepository.cs
+|   |-- UsuariosRepository.cs
+|   |-- VisitanteRepository.cs
+|
+|-- Utilidades/
+|   |-- ConexionBD.cs
+|
+|-- Program.cs
+
+## Patrones y principios aplicados
+### Patrones:
+- Repository: Cada entidad principal tiene su repositorio que abstrae el acceso a datos.
+- Singleton: Aplicado en ConexionBD.cs para asegurar una única instancia de conexión activa a la BD.
+
+### Principios SOLID:
+- S - Responsabilidad única: Cada clase tiene una sola responsabilidad (repositorio, modelo, interfaz).
+- O - Abierto/Cerrado: Se pueden agregar nuevas funcionalidades sin modificar las clases existentes.
+
+## Manual básico de usuario
+### Ingreso al sistema:
+1. Ejecutar la aplicación.
+2. Iniciar sesión con credenciales válidas (Administrador o Seguridad).
+
+### Como administrador:
+- Crear empleados y asignar roles.
+- Consultar registros de acceso.
+- Visualizar alertas.
+
+### Como personal de seguridad:
+- Registrar entrada/salida de personas.
+- Monitorear en tiempo real accesos activos.
+- Generar alertas cuando sea necesario.
+
+## Capturas y evidencias:
+### Formulario de acceso:
+
+### Panel del Admin:
+
+### Alertas generadas:
+
+### Monitoreo en tiempo real:
+
+## Evidencias de pruebas:
+### Prueba de ingreso/salida de empleado:
+
+### Acceso fuera de horario genera alerta:
+
+### Verificacion del monitoreo activo:
 
 
 ## Tecnologías utilizadas:
@@ -33,9 +110,9 @@ Interfaz dedicada al personal de vigilancia para controlar accesos en tiempo rea
 - IDE Visual Studio
 - Base de datos SQL Server
 - Acceso a datos ADO.NET
+- Patrón Repository/Singleton
+- Principios SOLID
 - Control de versiones GitHub
-
-## Captura de pantalla iniciales:
 
 
 ## Instrucciones para compilar y ejecutar:
