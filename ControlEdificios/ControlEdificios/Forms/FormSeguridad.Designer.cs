@@ -40,7 +40,7 @@
             dgvAccesosActivos.Location = new Point(81, 74);
             dgvAccesosActivos.Name = "dgvAccesosActivos";
             dgvAccesosActivos.RowHeadersWidth = 62;
-            dgvAccesosActivos.Size = new Size(617, 382);
+            dgvAccesosActivos.Size = new Size(681, 382);
             dgvAccesosActivos.TabIndex = 0;
             // 
             // timerMonitoreo

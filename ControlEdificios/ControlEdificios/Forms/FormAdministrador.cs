@@ -178,5 +178,11 @@ namespace ControlAccesoPrueba.Forms
         {
             new FormRegistrarAcceso().Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormSeguridad formMonitoreo = new FormSeguridad();
+            formMonitoreo.Show();
+        }
     }
 }
