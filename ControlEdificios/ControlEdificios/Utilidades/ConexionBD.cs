@@ -43,13 +43,20 @@ namespace ControlEdificios.Utilidades
         }
 
         //Devolver la conexion abierta
-        public SqlConnection ObtenerConexion()
+        /*public SqlConnection ObtenerConexion()
         {
             if (conexion.State == System.Data.ConnectionState.Closed)
             {
                 conexion.Open();
             }
             return conexion;
+        }*/
+
+        public SqlConnection ObtenerConexion()
+        {
+            var nuevaConexion = new SqlConnection(connectionString);
+            nuevaConexion.Open();
+            return nuevaConexion;
         }
 
         //Devolver la conexion cerrada

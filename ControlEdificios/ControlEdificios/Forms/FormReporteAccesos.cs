@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControlEdificios.Utilidades;
 using Microsoft.Data.SqlClient;
 
 
@@ -14,7 +15,6 @@ namespace ControlEdificios.Forms
 {
     public partial class FormReporteAccesos : Form
     {
-        private string connectionString = "Server=localhost\\SQLEXPRESS;Database=ControlEdificios;Trusted_Connection=True;TrustServerCertificate=True";
         public FormReporteAccesos()
         {
             InitializeComponent();
@@ -23,41 +23,57 @@ namespace ControlEdificios.Forms
 
         private void CargarFiltros()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (var conn = ConexionBD.ObtenerInstancia().ObtenerConexion())
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
 
-                // Cargar Personas
-                SqlCommand cmdPersonas = new SqlCommand("SELECT DISTINCT Persona FROM Accesos", conn);
-                SqlDataReader readerPersonas = cmdPersonas.ExecuteReader();
+                //  Personas (Empleados + Visitantes)
+                cmbPersona.Items.Clear();
                 cmbPersona.Items.Add("Todos");
-                while (readerPersonas.Read())
+
+                // Empleados
+                using (SqlCommand cmdEmp = new SqlCommand("SELECT EmpleadoID, Nombre AS NombreCompleto FROM Empleados", conn))
+                using (SqlDataReader readerEmp = cmdEmp.ExecuteReader())
                 {
-                    cmbPersona.Items.Add(readerPersonas.GetString(0));
+                    while (readerEmp.Read())
+                    {
+                        cmbPersona.Items.Add(readerEmp["NombreCompleto"].ToString());
+                    }
                 }
-                readerPersonas.Close();
+
+                // Visitantes
+                using (SqlCommand cmdVis = new SqlCommand("SELECT VisitanteID, Nombre AS NombreCompleto FROM Visitantes", conn))
+                using (SqlDataReader readerVis = cmdVis.ExecuteReader())
+                {
+                    while (readerVis.Read())
+                    {
+                        cmbPersona.Items.Add(readerVis["NombreCompleto"].ToString());
+                    }
+                }
+
                 cmbPersona.SelectedIndex = 0;
 
-                // Cargar Zonas
-                SqlCommand cmdZonas = new SqlCommand("SELECT DISTINCT Zona FROM Accesos", conn);
-                SqlDataReader readerZonas = cmdZonas.ExecuteReader();
+                // Zonas 
+                cmbZona.Items.Clear();
                 cmbZona.Items.Add("Todos");
-                while (readerZonas.Read())
+
+                using (SqlCommand cmdZona = new SqlCommand("SELECT NombreZona FROM Zonas", conn))
+                using (SqlDataReader readerZona = cmdZona.ExecuteReader())
                 {
-                    cmbZona.Items.Add(readerZonas.GetString(0));
+                    while (readerZona.Read())
+                    {
+                        cmbZona.Items.Add(readerZona.GetString(0));
+                    }
                 }
-                readerZonas.Close();
+
                 cmbZona.SelectedIndex = 0;
 
-                // Cargar Roles
-                SqlCommand cmdRoles = new SqlCommand("SELECT DISTINCT Rol FROM Accesos", conn);
-                SqlDataReader readerRoles = cmdRoles.ExecuteReader();
+                // Rol (Empleado o Visitante)
+                cmbRol.Items.Clear();
                 cmbRol.Items.Add("Todos");
-                while (readerRoles.Read())
-                {
-                    cmbRol.Items.Add(readerRoles.GetString(0));
-                }
-                readerRoles.Close();
+                cmbRol.Items.Add("Empleado");
+                cmbRol.Items.Add("Visitante");
                 cmbRol.SelectedIndex = 0;
             }
         }
@@ -70,49 +86,69 @@ namespace ControlEdificios.Forms
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            string query = "SELECT Persona, Zona, FechaHora, Rol FROM Accesos WHERE 1=1";
-            var parameters = new List<SqlParameter>();
-
-            // Filtro por Persona
-            if (cmbPersona.SelectedItem != null && cmbPersona.SelectedItem.ToString() != "Todos")
+            using (var conn = ConexionBD.ObtenerInstancia().ObtenerConexion())
             {
-                query += " AND Persona = @Persona";
-                parameters.Add(new SqlParameter("@Persona", cmbPersona.SelectedItem.ToString()));
-            }
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
 
-            // Filtro por Zona
-            if (cmbZona.SelectedItem != null && cmbZona.SelectedItem.ToString() != "Todos")
-            {
-                query += " AND Zona = @Zona";
-                parameters.Add(new SqlParameter("@Zona", cmbZona.SelectedItem.ToString()));
-            }
+                // Base de la consulta con joins
+                string query = @"SELECT A.AccesoID, ISNULL(E.Nombre, V.Nombre) AS Persona,Z.NombreZona AS Zona,A.FechaHoraEntrada,A.FechaHoraSalida,
+                                    CASE 
+                                    WHEN A.EmpleadoID IS NOT NULL THEN 'Empleado'
+                                    WHEN A.VisitanteID IS NOT NULL THEN 'Visitante'
+                                    ELSE 'Desconocido'
+                                    END AS Rol
+                                    FROM Accesos A
+                                    LEFT JOIN Empleados E ON A.EmpleadoID = E.EmpleadoID
+                                    LEFT JOIN Visitantes V ON A.VisitanteID = V.VisitanteID
+                                    LEFT JOIN Zonas Z ON A.ZonaID = Z.ZonasID
+                                    WHERE A.FechaHoraEntrada BETWEEN @Desde AND @Hasta";
 
-            // Filtro por Rol
-            if (cmbRol.SelectedItem != null && cmbRol.SelectedItem.ToString() != "Todos")
-            {
-                query += " AND Rol = @Rol";
-                parameters.Add(new SqlParameter("@Rol", cmbRol.SelectedItem.ToString()));
-            }
+                // Parámetros para filtrar
+                var parametros = new List<SqlParameter>
+                {
+                new SqlParameter("@Desde", dtpDesde.Value),
+                new SqlParameter("@Hasta", dtpHasta.Value)
+                };
 
-            // Filtro por Fecha y Hora
-            DateTime fechaDesde = dtpDesde.Value.Date + dtpHoraDesde.Value.TimeOfDay;
-            DateTime fechaHasta = dtpHasta.Value.Date + dtpHoraHasta.Value.TimeOfDay;
+                //  Filtro por persona 
+                if (cmbPersona.SelectedItem.ToString() != "Todos")
+                {
+                    query += " AND (E.Nombre = @Persona OR V.Nombre = @Persona)";
+                    parametros.Add(new SqlParameter("@Persona", cmbPersona.SelectedItem.ToString()));
+                }
 
-            query += " AND FechaHora BETWEEN @FechaDesde AND @FechaHasta";
-            parameters.Add(new SqlParameter("@FechaDesde", fechaDesde));
-            parameters.Add(new SqlParameter("@FechaHasta", fechaHasta));
+                //  Filtro por zona 
+                if (cmbZona.SelectedItem.ToString() != "Todos")
+                {
+                    query += " AND Z.NombreZona = @Zona";
+                    parametros.Add(new SqlParameter("@Zona", cmbZona.SelectedItem.ToString()));
+                }
 
-            // Ejecutar la consulta y cargar los resultados en el DataGridView
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
+                // Filtro por rol 
+                if (cmbRol.SelectedItem.ToString() == "Empleado")
+                {
+                    query += " AND A.EmpleadoID IS NOT NULL";
+                }
+                else if (cmbRol.SelectedItem.ToString() == "Visitante")
+                {
+                    query += " AND A.VisitanteID IS NOT NULL";
+                }
+
+                // Ejecutar consulta y llenar DataGridView
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddRange(parameters.ToArray());
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dgvReportes.DataSource = dt;
+                    cmd.Parameters.AddRange(parametros.ToArray());
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable tabla = new DataTable();
+                        adapter.Fill(tabla);
+                        dgvReportes.DataSource = tabla;
+                    }
                 }
+
+                conn.Close();
             }
         }
     }

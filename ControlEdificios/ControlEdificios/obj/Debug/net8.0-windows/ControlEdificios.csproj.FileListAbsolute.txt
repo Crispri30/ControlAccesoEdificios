@@ -287,3 +287,4 @@ C:\Users\camil\source\repos\Crispri30\ControlAccesoEdificios\ControlEdificios\Co
 C:\Users\camil\source\repos\Crispri30\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.pdb
 C:\Users\camil\source\repos\Crispri30\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.genruntimeconfig.cache
 C:\Users\camil\source\repos\Crispri30\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ref\ControlEdificios.dll
+C:\Users\camil\source\repos\Crispri30\ControlAccesoEdificios\ControlEdificios\ControlEdificios\obj\Debug\net8.0-windows\ControlEdificios.Forms.FormReporteAccesos.resources
