@@ -2,7 +2,7 @@
 Este proyecto tiene como propósito fundamental explorar a fondo las tecnologías ADO.NET y Entity Framework. Buscamos comprender en detalle sus funcionalidades y características para alcanzar el objetivo principal de lograr una mayor escalabilidad en nuestro código. Adicionalmente, aspiramos a adquirir el conocimiento y la experiencia suficiente para desarrollar soluciones de programación cada vez más avanzadas.
 
 ## Diagrama entidad-relación:
-![image](https://github.com/user-attachments/assets/47f5c6a0-896b-4bbf-95d1-fb068bda9ddd)
+![image](https://github.com/user-attachments/assets/38c6121a-d8f8-4c24-a50f-92554d4fac17)
 
 ## Descripción de funcionalidades:
 
