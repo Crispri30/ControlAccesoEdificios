@@ -2,7 +2,7 @@
 Este proyecto tiene como propósito fundamental explorar a fondo las tecnologías ADO.NET y Entity Framework. Buscamos comprender en detalle sus funcionalidades y características para alcanzar el objetivo principal de lograr una mayor escalabilidad en nuestro código. Adicionalmente, aspiramos a adquirir el conocimiento y la experiencia suficiente para desarrollar soluciones de programación cada vez más avanzadas.
 
 ## Diagrama entidad-relación:
-![image](https://github.com/user-attachments/assets/47f5c6a0-896b-4bbf-95d1-fb068bda9ddd)
+![image](https://github.com/user-attachments/assets/38c6121a-d8f8-4c24-a50f-92554d4fac17)
 
 ## Descripción de funcionalidades:
 
@@ -50,6 +50,11 @@ Actualización automática cada 5 segundos mediante un Timer en el formulario Fo
 ### Ingreso al sistema:
 1. Ejecutar la aplicación.
 2. Iniciar sesión con credenciales válidas (Administrador o Seguridad).
+   Administrador
+  1. Usuario: Cristian Contraseña: 3000
+  2. Usuario: Manuela Contraseña: 2000
+   Seguridad
+  1. Usuario: Camilo Contraseña: 1000
 
 ### Como administrador:
 - Crear empleados y asignar roles.
@@ -63,20 +68,34 @@ Actualización automática cada 5 segundos mediante un Timer en el formulario Fo
 
 ## Capturas y evidencias:
 ### Formulario de acceso:
+![image](https://github.com/user-attachments/assets/b160d9ea-fdb5-430e-bc72-ed15759c9c90)
 
 ### Panel del Admin:
+![image](https://github.com/user-attachments/assets/110ccfa2-5bbc-4d62-8510-e52a6a79c9fb)
 
 ### Alertas generadas:
+![image](https://github.com/user-attachments/assets/293b116e-13df-4fdc-b186-675fd8742036)
+
 
 ### Monitoreo en tiempo real:
+![image](https://github.com/user-attachments/assets/ee022476-e6a6-440b-acd0-fa1913db391c)
 
 ## Evidencias de pruebas:
 ### Prueba de ingreso/salida de empleado:
+Ingreso de empleado:
+![image](https://github.com/user-attachments/assets/5abbda16-5372-41f2-ba11-2fac5851a623)
+![image](https://github.com/user-attachments/assets/4cb98beb-e885-49e0-bd62-6c6b38e24f35)
+
+Salida de empleado:
+![image](https://github.com/user-attachments/assets/88ba1792-39a1-4a49-99d5-63fc55e03b8b)
+![image](https://github.com/user-attachments/assets/53dd433f-2329-4655-b7de-a65d81c8a92c)
+
 
 ### Acceso fuera de horario genera alerta:
+![image](https://github.com/user-attachments/assets/8eabe1ce-4488-4233-898e-0b2443f8a6e7)
 
 ### Verificacion del monitoreo activo:
-
+![image](https://github.com/user-attachments/assets/e84d93dd-104b-4afb-a55b-b79e38ebf5b6)
 
 ## Tecnologías utilizadas:
 - Lenguaje de programación C#
